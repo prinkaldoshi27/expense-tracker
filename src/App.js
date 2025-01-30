@@ -14,26 +14,36 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await api.get("/items");
-      setItems(response.data);
-      setLoading(false);
-    }
+      try {
+        const response = await api.get("/items");
+        setItems(response.data || []); 
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setItems([]);
+      }
+    };
 
     setTimeout(() => {
       fetchData();
     }, 2000)
 
     const getTotal = () => {
+      if (!Array.isArray(items)) return;
       let totalAmt = 0;
       items.forEach((item) => {
         totalAmt += parseFloat(item.amount);
-      })
+      });
       setTotal(totalAmt);
+    };
+
+    if (items.length > 0) {
+      getTotal();
     }
-    getTotal();
   }, [items]);
 
   const handleDelete = async (id) => {
+    if (!Array.isArray(items)) return;
     try {
       await api.delete(`/items/${id}`);
       const newItems = items.filter((item) => item.id !== id);

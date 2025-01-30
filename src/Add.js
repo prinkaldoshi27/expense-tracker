@@ -27,9 +27,9 @@ const Add = ({ items, setItems, }) => {
       setError("Amount must be greater than 0");
       return; 
     }
-    const newId = 
-      (items.length
-        ? Math.max(...items.map(item => item.id)) + 1
+    const newId =
+      (Array.isArray(items) && items.length
+        ? Math.max(...items.map(item => Number(item.id))) + 1
         : 1).toString();
     
     const newItem = {
@@ -52,6 +52,7 @@ const Add = ({ items, setItems, }) => {
       setError("");
     } catch (error) {
       console.error("Error adding item:", error);
+      setItems([]);
     }
   };
 

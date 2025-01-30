@@ -9,6 +9,7 @@ const Show = ({items, handleDelete, loading, setLoading, handleEdit}) => {
     const [search, setSearch] = useState('');
     const [resultItems, setResultItems] = useState([]);
     useEffect(() => {
+      if (!Array.isArray(items)) return;
         category === 'All' ? 
         setResultItems((items.filter((item) =>
           (item.description.toLowerCase()).includes(search.toLowerCase())).reverse()) ) : 
