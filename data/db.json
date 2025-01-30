@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "date": "1/30/2025",
+      "time": "9:11:07 PM",
+      "description": "sad",
+      "amount": "34",
+      "category": "Utilities"
+    },
+    {
+      "id": "2",
+      "date": "1/30/2025",
+      "time": "9:11:15 PM",
+      "description": "op",
+      "amount": "32",
+      "category": "Utilities"
+    },
+    {
+      "id": "3",
+      "date": "1/30/2025",
+      "time": "9:11:26 PM",
+      "description": "jdsi",
+      "amount": "90",
+      "category": "Entertainment"
+    }
+  ]
+}
