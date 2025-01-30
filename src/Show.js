@@ -8,17 +8,18 @@ import ZeroData from "./ZeroData";
 const Show = ({items, handleDelete, loading, setLoading, handleEdit}) => {
     const [search, setSearch] = useState('');
     const [resultItems, setResultItems] = useState([]);
+    const [category, setCategory] = useState('All');
+
     useEffect(() => {
       if (!Array.isArray(items)) return;
         category === 'All' ? 
         setResultItems((items.filter((item) =>
-          (item.description.toLowerCase()).includes(search.toLowerCase())).reverse()) ) : 
+          (item.description.toLowerCase()).includes(search.toLowerCase())).reverse())) : 
           setResultItems((items.filter((item) =>
             (item.category.toLowerCase()).includes(category.toLowerCase()) &&
-            (item.description.toLowerCase()).includes(search.toLowerCase())).reverse()) )
-    }, [items, search])
+            (item.description.toLowerCase()).includes(search.toLowerCase())).reverse()))
+    }, [items, search, category]);
   
-  const [category, setCategory] = useState('All');
 
   return (
     <>

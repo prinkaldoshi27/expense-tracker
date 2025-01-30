@@ -2,9 +2,9 @@ import Add from "./Add";
 import Navbar from "./Navbar";
 import Show from "./Show";
 import Tabs from "./Tabs";
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter as Router ,Routes, Route, } from 'react-router-dom';
 import api from "./api/items";
-import { StrictMode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./Footer";
 
 function App() {
@@ -64,7 +64,8 @@ function App() {
 
   return (
     <>
-    <StrictMode>
+  
+    <Router>
       <div className="app-container">
         <Navbar />
           <Tabs />
@@ -76,7 +77,7 @@ function App() {
         </div>
         <Footer total={total} />
       </div>
-      </StrictMode>
+</Router>
     </>
   );
 }
