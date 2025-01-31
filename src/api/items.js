@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: 'http://localhost:3500',
+    baseURL: "https://expense-tracker-production-5a9e.up.railway.app",
 });
+
