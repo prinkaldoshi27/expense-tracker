@@ -40,7 +40,7 @@ function App() {
     if (items.length > 0) {
       getTotal();
     }
-  }, [items]);
+  }, []);
 
   const handleDelete = async (id) => {
     if (!Array.isArray(items)) return;
